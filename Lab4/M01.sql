@@ -70,14 +70,14 @@ As
 	dem int;
 Begin
     select count(CUSID) into dem from CUSTOMER where CUSID = v_CUSID;
-            if(dem=1) then
-                    insert into TRANSACT values('CN01',v_CUSID,v_money, 'Deposit');
-            else
-            	select count(CUSID) into dem from M02.CUSTOMER@DBL_M02 where CUSID = v_CUSID;
-            	if(dem=1) then
-                    insert into M02.TRANSACT@DBL_M02 values('CN01',v_CUSID,v_money, 'Deposit');
-            	end if;
-    		end if;
+        if(dem=1) then
+                insert into TRANSACT values('CN01',v_CUSID,v_money, 'Deposit');
+        else
+        	select count(CUSID) into dem from M02.CUSTOMER@DBL_M02 where CUSID = v_CUSID;
+        	if(dem=1) then
+                insert into M02.TRANSACT@DBL_M02 values('CN01',v_CUSID,v_money, 'Deposit');
+        	end if;
+    	end if;
     COMMIT;
 End;
 
