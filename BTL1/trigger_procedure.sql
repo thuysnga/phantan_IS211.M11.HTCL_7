@@ -1,31 +1,24 @@
--- trigger: sá»‘ sÃ¡ch luÃ´n pháº£i lá»›n hÆ¡n 1
-
--- procedure: bÃ¡n sÃ¡ch
-
-CREATE or REPLACE PROCEDURE BanSanPham(var_masp in SANPHAM.MASP%TYPE)
+-- procedure: ban san pham, CHI NHANH NAO THUC THI CUA CHI NHANH DO
+CREATE or REPLACE PROCEDURE BanSanPham(v_masp in SANPHAM.MASP%TYPE, v_soluong KHOSANPHAM_QLKHO.Soluong%TYPE)
 IS
 BEGIN
-
+    
 END;
 
 
--- trigger: thá»±c hiá»‡n trÃªn KHOSACH_QLKHO, nháº­p vÃ o mÃ£ sáº£n pháº©m, xem tÃ¬nh tráº¡ng sáº£n pháº©m (cÃ²n hay háº¿t) vÃ  sá»‘ lÆ°á»£ng cÃ²n láº¡i
 
-CREATE OR REPLACE function getTinhTrang(var_masp in KHOSACH_QLKHO.MASP%TYPE) RETURN int
-IS
-	var_soluong int;
-	dem int;
-BEGIN
-	dem := -1;
-	select count(var_masp) into dem from KHOSACH_QLKHO where MASP = var_masp;
-	if (dem!= -1) then
-		select SoLuong into var_soluong from KHOSACH_QLKHO where MASP = var_masp;
-	end if;
-	return var_soluong;
-END getTinhTrang;
 
-SELECT MaSP, getSoLuong('TV07') FROM KHOSACH_QLKHO;
-SELECT getSoLuong('ST01') FROM KHOSACH_QLKHO;
+
+
+
+
+
+
+
+
+
+
+
 
 CREATE OR REPLACE PROCEDURE BaiThiHTCL1.proc_quanlynhanvien(manv_in IN PHANCONG.MANV%TYPE)
 IS
