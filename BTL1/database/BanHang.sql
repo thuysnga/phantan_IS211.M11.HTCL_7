@@ -137,7 +137,7 @@ create table CTHD(
 	MASP varchar(10),
 	SoLuong int,
 	TRIGIA INT,
-	CONSTRAINT P_CTHD PRIMARY KEY(SOHD)
+	CONSTRAINT P_CTHD PRIMARY KEY(SOHD,MASP)
 );
 
 --phân mảnh dọc
