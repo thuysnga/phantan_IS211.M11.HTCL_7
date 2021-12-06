@@ -128,7 +128,7 @@ create table HOADON(
     MAKH varchar(5),
     MANV varchar(10),
 	machinhanh varchar(4),
-    CONSTRAINT P_HD PRIMARY KEY(SOHD)
+    CONSTRAINT P_HD PRIMARY KEY(SOHD, machinhanh)
 );
 --phân mảnh ngang
 create table CTHD(
@@ -164,6 +164,9 @@ add CONSTRAINT hoadon_NV_FK FOREIGN KEY (MANV) REFERENCES NHANVIEN(MANV);
 
 alter table HOADON 
 add CONSTRAINT hoadon_khach_FK FOREIGN KEY (MAKH) REFERENCES KHACHHANG(MAKH) ;
+
+alter table HOADON 
+add CONSTRAINT hoadon_chinhanh_FK FOREIGN KEY (machinhanh) REFERENCES chinhanh(machinhanh) ;
 
 alter table CTHD 
 add CONSTRAINT CTHD_HD_FK FOREIGN KEY (SOHD) REFERENCES HOADON(SOHD) ;
