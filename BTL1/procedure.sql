@@ -26,7 +26,7 @@ BEGIN
         FROM maythunghiem2.KHOSANPHAM_QLKHO
         WHERE MASP = v_masp;
         DBMS_OUTPUT.PUT_LINE('Lay masp 2 ok');
-
+        
         UPDATE KHOSANPHAM_QLKHO
         SET SoLuong = SoLuong - v_soluong
         WHERE MASP = v_masp;
@@ -35,17 +35,24 @@ BEGIN
         SET SoLuong = SoLuong + v_soluong
         WHERE MASP = v_masp;
 
-        COMMIT;
-
         EXCEPTION
         WHEN NO_DATA_FOUND THEN
-        DBMS_OUTPUT.PUT_LINE('Kho hang 2 khong co san pham nay');
+        BEGIN
+            INSERT maythunghiem2.KHOSANPHAM_QLKHO
+            VALUES ('CN02', 'v_masp', v_soluong);
+            
+            UPDATE KHOSANPHAM_QLKHO
+            SET SoLuong = SoLuong - v_soluong
+            WHERE MASP = v_masp;
+        END;
     END;
     END IF;
 
     EXCEPTION
     WHEN NO_DATA_FOUND THEN
     DBMS_OUTPUT.PUT_LINE('Kho hang 1 khong co san pham nay');
+
+    COMMIT;
 END;
 
 EXEC ChuyenSanPham('ST01', 2);
