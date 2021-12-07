@@ -1,143 +1,56 @@
--- procedure: ban san pham, CHI NHANH NAO THUC THI CUA CHI NHANH DO
-CREATE or REPLACE PROCEDURE BanSanPham(v_masp in SANPHAM.MASP%TYPE, v_soluong KHOSANPHAM_QLKHO.Soluong%TYPE)
+-- procedure: chuyen hang tu chi nhanh nay sang chi nhanh kia
+CREATE or REPLACE PROCEDURE ChuyenSanPham(v_masp in SANPHAM.MASP%TYPE, v_soluong in KHOSANPHAM_QLKHO.Soluong%TYPE)
 IS
+    var_maspkho SANPHAM.MASP%TYPE;
+    var_maspkho2 SANPHAM.MASP%TYPE;
+    var_soluongkho KHOSANPHAM_QLKHO.Soluong%TYPE;
+    var_soluongkho2 KHOSANPHAM_QLKHO.Soluong%TYPE;
 BEGIN
+    SELECT MASP
+    INTO var_maspkho
+    FROM KHOSANPHAM_QLKHO
+    WHERE MASP = v_masp;
+    DBMS_OUTPUT.PUT_LINE('Lay masp ok');
     
+    SELECT SoLuong
+    INTO var_soluongkho
+    FROM KHOSANPHAM_QLKHO
+    WHERE MASP = v_masp;
+
+    IF var_soluongkho < v_soluong THEN
+    DBMS_OUTPUT.PUT_LINE('So luong vuot qua so luong trong kho');
+    ELSE
+    BEGIN
+        SELECT MASP
+        INTO var_maspkho2
+        FROM maythunghiem2.KHOSANPHAM_QLKHO
+        WHERE MASP = v_masp;
+        DBMS_OUTPUT.PUT_LINE('Lay masp 2 ok');
+
+        UPDATE KHOSANPHAM_QLKHO
+        SET SoLuong = SoLuong - v_soluong
+        WHERE MASP = v_masp;
+
+        UPDATE maythunghiem2.KHOSANPHAM_QLKHO
+        SET SoLuong = SoLuong + v_soluong
+        WHERE MASP = v_masp;
+
+        COMMIT;
+
+        EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('Kho hang 2 khong co san pham nay');
+    END;
+    END IF;
+
+    EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+    DBMS_OUTPUT.PUT_LINE('Kho hang 1 khong co san pham nay');
 END;
 
+EXEC ChuyenSanPham('ST01', 2);
+EXEC ChuyenSanPham('ST01', 8);
+EXEC ChuyenSanPham('BB11', 2);
+EXEC ChuyenSanPham('ST07', 10);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-CREATE OR REPLACE PROCEDURE BaiThiHTCL1.proc_quanlynhanvien(manv_in IN PHANCONG.MANV%TYPE)
-IS
-    var_soluong number;
-    var_tennhanvien NHANVIEN.HOTEN%TYPE;
-    var_nhiemvu     PHANCONG.NHIEMVU%TYPE;
-    var_mahang      CHUYENBAY.MAHANG%TYPE;
-    var_xuatphat    CHUYENBAY.XUATPHAT%TYPE;
-    var_diemden     CHUYENBAY.DIEMDEN%TYPE;
-    var_batdau      CHUYENBAY.BATDAU%TYPE;
-    var_tgbay       CHUYENBAY.TGBAY%TYPE;
-    cur_machuyenbay PHANCONG.MACB%TYPE;
-    CURSOR CUR IS SELECT PHANCONG.MACB
-                    FROM BaiThiHTCL1.PHANCONG
-                    WHERE PHANCONG.MANV = manv_in;
-BEGIN
-    SELECT NV.HOTEN,COUNT(*) INTO var_tennhanvien, var_soluong
-    FROM BaiThiHTCL1.NHANVIEN NV, BaiThiHTCL1.PHANCONG PC
-    WHERE NV.MANV = PC.MANV AND 
-    NV.MANV = manv_in
-    GROUP BY NV.MANV,NV.HOTEN;
-    
-    DBMS_OUTPUT.PUT_LINE('** THONG TIN CHUYEN BAY CUA NHAN VIEN: '|| var_tennhanvien || ' **');
-    DBMS_OUTPUT.PUT_LINE('** SO LUONG CHUYEN BAY THAM GIA: '|| var_soluong || ' **');
-    OPEN CUR;
-    LOOP 
-        FETCH CUR INTO cur_machuyenbay;
-        DBMS_OUTPUT.PUT_LINE('=============================================');
-        EXIT WHEN CUR%NOTFOUND;
-        SELECT 
-              NHIEMVU, MAHANG, XUATPHAT, DIEMDEN, BATDAU, TGBAY 
-              INTO
-                  var_nhiemvu, var_mahang, var_xuatphat, 
-                  var_diemden, var_batdau, var_tgbay
-        FROM  
-              BaiThiHTCL1.PHANCONG,BaiThiHTCL1.CHUYENBAY
-        WHERE 
-              PHANCONG.MACB = CHUYENBAY.MACB AND
-              CHUYENBAY.MACB = cur_machuyenbay AND PHANCONG.MANV = manv_in ;
-        
-       
-        DBMS_OUTPUT.PUT_LINE('NHIEM VU ' || var_nhiemvu);
-        DBMS_OUTPUT.PUT_LINE('CHUYEN BAY: '||cur_machuyenbay||' ,HANG: '||var_mahang);
-        DBMS_OUTPUT.PUT_LINE('XUAT PHAT: '||var_xuatphat||' ,DIEM DEN: '||var_diemden);
-        DBMS_OUTPUT.PUT_LINE('THOI GIAN BAT DAU: '||var_batdau);
-        DBMS_OUTPUT.PUT_LINE('THOI GIAN BAY: '||var_tgbay);
-    
-    END LOOP;
-    CLOSE CUR;
-END;
-
-
-CREATE or REPLACE PROCEDURE BanSanPham(var_masp in SANPHAM.MASP%TYPE)
-IS
-	var_soluong number;
-BEGIN
-	SELECT SoLuong INTO var_soluong
-	FROM KHOSACH_QLKHO
-	WHERE MASP = var_masp;
-	DBMS_OUTPUT.PUT_LINE('** MÃ S?N PH?M: '|| var_masp || ' **');
-	DBMS_OUTPUT.PUT_LINE('** S? L??NG: '|| var_soluong || ' **');
-END BanSanPham;
-COMMIT;
-
-BEGIN 
-    BanSanPham('ST01');
-END;
-
-CREATE or REPLACE PROCEDURE thu
-BEGIN
-    DBMS_OUTPUT.PUT_LINE('THU: ');
-END;
-
-BEGIN 
-    thu(1);
-END;
-
-Begin
-DBMS_OUTPUT.PUT_LINE('THU: ');
-end;
-
-
-CREATE or REPLACE PROCEDURE BanSanPham(var_masp in SANPHAM.MASP%TYPE)
-IS
-	var_soluong number;
-BEGIN
-	SELECT SoLuong INTO var_soluong
-	FROM KHOSACH_QLKHO
-	WHERE MASP = var_masp;
-	DBMS_OUTPUT.PUT_LINE('** MÃ SẢN PHẨM: '|| var_masp || ' **');
-	DBMS_OUTPUT.PUT_LINE('** SỐ LƯỢNG: '|| var_soluong || ' **');
-END;
-
-
-BEGIN 
-    BanSanPham('ST01');
-END;
-
-CREATE or REPLACE PROCEDURE TIMKIEM(var_masp SANPHAM.MASP%type)
-IS
-BEGIN
-  select MASP
-  where MASP = var_masp;
-  exception
-    when no_data_found then
-      dbms_output.put_line('không tìm thấy');
-    when others then
-      dbms_output.put_line('Không xác định được lỗi gì =))');
-END;
-
--- Thực thi thủ tục TIMKIEM
-DECLARE
-    var_masp SANPHAM.MASP%TYPE;
-    tenmon SANPHAM.tenmh%TYPE;
-    sotinchi SANPHAM.sotc%TYPE;
-BEGIN
-    TIMKIEM('&Nhap_ma_mon_hoc', var_masp);
-    dbms_output.put_line(
-        'ten mon:' || to_char(tenmon) ||
-        ' so tc: ' || to_char(sotincchi) ||
-);
-END;
+CREATE USER maythunghiem2 IDENTIFIED BY maythunghiem2;
