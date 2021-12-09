@@ -310,30 +310,30 @@ INSERT INTO KHOSANPHAM_QLBH VALUES ('CN2','ST06','Het Hang',20);
 INSERT INTO KHOSANPHAM_QLBH VALUES ('CN2','ST07','Con Hang',10);
 
 
-INSERT INTO HOADON VALUES (1001,to_date('27/07/2006','dd/mm/yyyy'),'KH10','NV01','CN1','Da Thanh Toan');
-INSERT INTO HOADON VALUES (1002,to_date('10/08/2006','dd/mm/yyyy'),'KH01','NV02','CN1','Chua Thanh Toan');
-INSERT INTO HOADON VALUES (1003,to_date('23/08/2006','dd/mm/yyyy'),'KH02','NV06','CN1','Da Thanh Toan');
-INSERT INTO HOADON VALUES (1004,to_date('01/09/2006','dd/mm/yyyy'),'KH12','NV01','CN1','Chua Thanh Toan');
-INSERT INTO HOADON VALUES (1005,to_date('20/10/2006','dd/mm/yyyy'),'KH11','NV02','CN1','Da Thanh Toan');
-INSERT INTO HOADON VALUES (1006,to_date('16/10/2006','dd/mm/yyyy'),'KH11','NV03','CN1','Da Thanh Toan');
-INSERT INTO HOADON VALUES (1007,to_date('28/10/2006','dd/mm/yyyy'),'KH03','NV03','CN1','Chua Thanh Toan');
-INSERT INTO HOADON VALUES (1008,to_date('28/10/2006','dd/mm/yyyy'),'KH01','NV07','CN1','Huy');
-INSERT INTO HOADON VALUES (1009,to_date('28/10/2006','dd/mm/yyyy'),'KH03','NV04','CN1','Chua Thanh Toan');
-INSERT INTO HOADON VALUES (1010,to_date('01/11/2006','dd/mm/yyyy'),'KH01','NV05','CN1','Da Thanh Toan');
-INSERT INTO HOADON VALUES (1011,to_date('04/11/2006','dd/mm/yyyy'),'KH14','NV08','CN1','Da Thanh Toan');
-INSERT INTO HOADON VALUES (1012,to_date('30/11/2006','dd/mm/yyyy'),'KH15','NV04','CN1','Da Thanh Toan');
+INSERT INTO HOADON VALUES (1001,to_date('27/07/2020','dd/mm/yyyy'),'KH10','NV01','CN1','Da Thanh Toan');
+INSERT INTO HOADON VALUES (1002,to_date('10/08/2020','dd/mm/yyyy'),'KH01','NV02','CN1','Chua Thanh Toan');
+INSERT INTO HOADON VALUES (1003,to_date('23/08/2020','dd/mm/yyyy'),'KH02','NV06','CN1','Da Thanh Toan');
+INSERT INTO HOADON VALUES (1004,to_date('01/09/2020','dd/mm/yyyy'),'KH12','NV01','CN1','Chua Thanh Toan');
+INSERT INTO HOADON VALUES (1005,to_date('20/10/2020','dd/mm/yyyy'),'KH11','NV02','CN1','Da Thanh Toan');
+INSERT INTO HOADON VALUES (1006,to_date('16/10/2020','dd/mm/yyyy'),'KH11','NV03','CN1','Da Thanh Toan');
+INSERT INTO HOADON VALUES (1007,to_date('28/10/2021','dd/mm/yyyy'),'KH03','NV03','CN1','Chua Thanh Toan');
+INSERT INTO HOADON VALUES (1008,to_date('28/10/2021','dd/mm/yyyy'),'KH01','NV07','CN1','Huy');
+INSERT INTO HOADON VALUES (1009,to_date('28/10/2021','dd/mm/yyyy'),'KH03','NV04','CN1','Chua Thanh Toan');
+INSERT INTO HOADON VALUES (1010,to_date('01/11/2021','dd/mm/yyyy'),'KH01','NV05','CN1','Da Thanh Toan');
+INSERT INTO HOADON VALUES (1011,to_date('04/11/2021','dd/mm/yyyy'),'KH14','NV08','CN1','Da Thanh Toan');
+INSERT INTO HOADON VALUES (1012,to_date('30/11/2021','dd/mm/yyyy'),'KH15','NV04','CN1','Da Thanh Toan');
 
-INSERT INTO HOADON VALUES (2001,to_date('12/12/2006','dd/mm/yyyy'),'KH06','NV11','CN2','Huy');
-INSERT INTO HOADON VALUES (2002,to_date('31/12/2006','dd/mm/yyyy'),'KH03','NV12','CN2','Da Thanh Toan');
-INSERT INTO HOADON VALUES (2003,to_date('01/01/2007','dd/mm/yyyy'),'KH16','NV11','CN2','Chua Thanh Toan');
-INSERT INTO HOADON VALUES (2004,to_date('01/01/2007','dd/mm/yyyy'),'KH17','NV12','CN2','Da Thanh Toan');
-INSERT INTO HOADON VALUES (2005,to_date('02/01/2007','dd/mm/yyyy'),'KH08','NV17','CN2','Da Thanh Toan');
-INSERT INTO HOADON VALUES (2006,to_date('13/01/2007','dd/mm/yyyy'),'KH18','NV18','CN2','Da Thanh Toan');
-INSERT INTO HOADON VALUES (2007,to_date('13/01/2007','dd/mm/yyyy'),'KH19','NV13','CN2','Chua Thanh Toan');
-INSERT INTO HOADON VALUES (2008,to_date('14/01/2007','dd/mm/yyyy'),'KH09','NV14','CN2','Da Thanh Toan');
-INSERT INTO HOADON VALUES (2009,to_date('16/01/2007','dd/mm/yyyy'),'KH20','NV13','CN2','Huy');
-INSERT INTO HOADON VALUES (2010,to_date('16/01/2007','dd/mm/yyyy'),'KH12','NV13','CN2','Chua Thanh Toan');
-INSERT INTO HOADON VALUES (2011,to_date('17/01/2007','dd/mm/yyyy'),'KH13','NV20','CN2','Da Thanh Toan2001');
+INSERT INTO HOADON VALUES (2001,to_date('12/12/2020','dd/mm/yyyy'),'KH06','NV11','CN2','Huy');
+INSERT INTO HOADON VALUES (2002,to_date('31/12/2020','dd/mm/yyyy'),'KH03','NV12','CN2','Da Thanh Toan');
+INSERT INTO HOADON VALUES (2003,to_date('01/01/2020','dd/mm/yyyy'),'KH16','NV11','CN2','Chua Thanh Toan');
+INSERT INTO HOADON VALUES (2004,to_date('01/01/2020','dd/mm/yyyy'),'KH17','NV12','CN2','Da Thanh Toan');
+INSERT INTO HOADON VALUES (2005,to_date('02/01/2020','dd/mm/yyyy'),'KH08','NV17','CN2','Da Thanh Toan');
+INSERT INTO HOADON VALUES (2006,to_date('13/01/2021','dd/mm/yyyy'),'KH18','NV18','CN2','Da Thanh Toan');
+INSERT INTO HOADON VALUES (2007,to_date('13/01/2021','dd/mm/yyyy'),'KH19','NV13','CN2','Chua Thanh Toan');
+INSERT INTO HOADON VALUES (2008,to_date('14/01/2021','dd/mm/yyyy'),'KH09','NV14','CN2','Da Thanh Toan');
+INSERT INTO HOADON VALUES (2009,to_date('16/01/2021','dd/mm/yyyy'),'KH20','NV13','CN2','Huy');
+INSERT INTO HOADON VALUES (2010,to_date('16/01/2021','dd/mm/yyyy'),'KH12','NV13','CN2','Chua Thanh Toan');
+INSERT INTO HOADON VALUES (2011,to_date('17/01/2021','dd/mm/yyyy'),'KH13','NV20','CN2','Da Thanh Toan2001');
 
 
 ---chi nhánh 1
