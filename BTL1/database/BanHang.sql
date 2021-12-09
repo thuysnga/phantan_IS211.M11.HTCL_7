@@ -59,6 +59,9 @@ GRANT SELECT ON CN2.KHOSANPHAM_QLBH to nhanvien;
 GRANT SELECT, INSERT ON CN2.HOADON TO nhanvien;
 GRANT SELECT, INSERT ON CN2.CTHD TO nhanvien;
 
+-- tao database link
+CREATE DATABASE LINK cn2_dblink CONNECT TO quanly IDENTIFIED BY quanly USING 'th_link';
+
 create table chinhanh(
 machinhanh varchar(4),
 tenchinhanh varchar(40),
