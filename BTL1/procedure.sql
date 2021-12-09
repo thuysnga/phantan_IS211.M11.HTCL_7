@@ -85,19 +85,19 @@ END;
 
 set serveroutput on size 30000;
 
--- may 1 khong co sp
+-- TH1: Chi nhánh chuyển không có mã sản phẩm này
 EXEC ChuyenSanPham('SS98', 2);
 
--- so luong chuyen phai lon hon 0
+-- TH2: Số lượng sản phẩm chuyển <= 0
 EXEC ChuyenSanPham('ST01', 0);
 
--- so luong may 1 khong du
+-- TH3: Số lượng sản phẩm chuyển vượt quá số lượng trong kho
 EXEC ChuyenSanPham('ST01', 5000);
 
--- may 2 chua co sp do 
+-- TH4: Kho nhận chưa có mã sản phẩm này
 EXEC ChuyenSanPham('ST01', 5);
 
--- chuyen bt 
+-- TH5: Chuyển sản phẩm bình thường
 EXEC ChuyenSanPham('ST01', 5);
 
 
