@@ -17,7 +17,7 @@ BEGIN
     ELSE
     BEGIN
         UPDATE cn1.KHOSANPHAM_QLKHO
-        SET SoLuong = SoLuong - v_sl
+        SET SoLuong = SoLuong - :NEW.SoLuong
         WHERE MASP = :NEW.MASP;
 
         IF :NEW.SoLuong = v_sl THEN
@@ -29,5 +29,8 @@ BEGIN
     END;
     END IF;
 
+    EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+    DBMS_OUTPUT.PUT_LINE('ERROR');
 END;
 /
