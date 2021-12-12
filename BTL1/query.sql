@@ -32,7 +32,7 @@ SELECT S2.MASP, S2.TENSP
 FROM CN2.KHOSANPHAM_QLBH@cn2_qh_dblink B2 JOIN CN2.SANPHAM@cn2_qh_dblink S2 ON B2.MASP = S2.MASP
 WHERE B2.TINHTRANG = 'Con Hang';
 
---Cau 5: Tim tong so luong hoa don da mua tat ca san pham san xuat Viet Nam o 2 chi nhanh:
+--Cau 5: Tim tong so luong hoa don da mua toan san pham san xuat Viet Nam o 2 chi nhanh:
 SELECT COUNT(SOHD) AS "SO_LUONG_HOA_DON_MUA_SAN_PHAM_VIET_NAM"
 FROM (SELECT * FROM CN1.HOADON H1
 WHERE NOT EXISTS (
