@@ -291,8 +291,8 @@ INSERT INTO HOADON VALUES (1010,to_date('01/11/2021','dd/mm/yyyy'),'KH01','NV05'
 INSERT INTO HOADON VALUES (1011,to_date('04/11/2021','dd/mm/yyyy'),'KH14','NV08','CN1','Da Thanh Toan');
 INSERT INTO HOADON VALUES (1012,to_date('30/11/2021','dd/mm/yyyy'),'KH15','NV04','CN1','Da Thanh Toan');
 
-INSERT INTO HOADON VALUES (2001,to_date('12/12/2020','dd/mm/yyyy'),'KH06','NV11','CN2','Huy');
-INSERT INTO HOADON VALUES (2002,to_date('31/12/2020','dd/mm/yyyy'),'KH03','NV12','CN2','Da Thanh Toan');
+INSERT INTO HOADON VALUES (2001,to_date('12/12/2020','dd/mm/yyyy'),'KH16','NV11','CN2','Huy');
+INSERT INTO HOADON VALUES (2002,to_date('31/12/2020','dd/mm/yyyy'),'KH13','NV12','CN2','Da Thanh Toan');
 INSERT INTO HOADON VALUES (2003,to_date('01/01/2020','dd/mm/yyyy'),'KH16','NV11','CN2','Chua Thanh Toan');
 INSERT INTO HOADON VALUES (2004,to_date('01/01/2020','dd/mm/yyyy'),'KH17','NV12','CN2','Da Thanh Toan');
 INSERT INTO HOADON VALUES (2005,to_date('02/01/2020','dd/mm/yyyy'),'KH08','NV17','CN2','Da Thanh Toan');
@@ -360,6 +360,7 @@ INSERT INTO CTHD VALUES (2010,'ST01',4,160000);
 INSERT INTO CTHD VALUES (2011,'ST02',3,165000);
 INSERT INTO CTHD VALUES (2011,'TV05',10,230000);
 INSERT INTO CTHD VALUES (2011,'ST07',5,35000);
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
 
@@ -452,4 +453,8 @@ update SANPHAM
 update SANPHAM 
  set Gia = 20000;
  where MASP='TV05';
+>>>>>>> Stashed changes
+=======
+
+
 >>>>>>> Stashed changes
