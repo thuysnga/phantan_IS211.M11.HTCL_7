@@ -60,7 +60,7 @@ GRANT SELECT, INSERT ON CN2.HOADON TO nhanvien;
 GRANT SELECT, INSERT ON CN2.CTHD TO nhanvien;
 
 -- tao database link
-CREATE DATABASE LINK cn2_qh_dblink CONNECT TO giamdoc IDENTIFIED BY giamdoc USING 'quanghuy_link';
+CREATE DATABASE LINK cn2_dblink CONNECT TO giamdoc IDENTIFIED BY giamdoc USING 'th_link';
 
 create table chinhanh(
 machinhanh varchar(4),
@@ -385,7 +385,7 @@ JOIN v$session s ON t.addr = s.taddr;
 
 ---nonrepeatable read
 --- máy 1:
-select * from SANPHAM where MASP='TV05';
+select * from CN2.SANPHAM@cn2_dblink where MASP='TV05';
 
 ---máy 2:
  update SANPHAM 
