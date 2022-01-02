@@ -1,0 +1,105 @@
+--Strings--
+set name1 Huy
+
+mset name2 Nga name3 Hoan
+
+setnx name1 Huy
+
+msetnx name2 Nga name3 Hoan
+
+get name1
+
+mget name1 name2 name3
+
+append name1 "HTCL"
+
+getrange name 0 -1
+
+rename name1 myname
+
+getset gv "MinhNhut"
+
+setex chao 10 Hello
+
+persist chao
+
+scan 0
+
+scan 0 count 5
+
+scan 10 match key*
+
+--Lists--
+rpush list A
+
+lpush list B
+
+linsert list before B X
+linsert list after C Y
+
+lrange list 0 -1
+
+llen list
+
+lpop list
+rpop list
+
+--Sets--
+sadd name Huy
+
+srem name Huy
+
+sismember name Huy
+
+smembers name
+
+scard name
+
+smove name ten Huy
+
+sunion name ten
+
+sdiff name ten
+
+srandmember ten
+
+spop ten
+
+--Sorted Sets--
+zadd hoten 100 "Quang Huy"
+
+zrem hoten "Quang Huy"
+
+zrange hoten 0 -1
+
+zrevrange hoten 0 -1
+
+zrangebyscore hoten 100 200
+
+zrank hoten "Quang Huy"
+
+zcard hoten
+
+zcount hoten 100 200
+
+zscore hoten "Quang Huy"
+
+zincrby hoten 10 "Quang Huy"
+
+--Hashes--
+hset huy name "Quang Huy"
+hmset nga name "Thuy Nga" age "20" email "nga@gmail.com"
+
+hget nga name
+hmget nga name age email
+hgetall nga
+
+hdel nga age
+
+hexists nga name
+
+hkeys nga
+
+hlen nga
+
+hvals nga
